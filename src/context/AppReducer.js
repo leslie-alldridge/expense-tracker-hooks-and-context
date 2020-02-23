@@ -1,4 +1,4 @@
-import { DELETE_TRANSACTION } from "./constants";
+import { DELETE_TRANSACTION, ADD_TRANSACTION } from "./constants";
 
 export default (state, action) => {
   switch (action.type) {
@@ -8,6 +8,11 @@ export default (state, action) => {
         transactions: state.transactions.filter(
           transaction => transaction.id !== action.payload
         )
+      };
+    case ADD_TRANSACTION:
+      return {
+        ...state,
+        transactions: [...state.transactions, action.payload]
       };
     default:
       return state;
