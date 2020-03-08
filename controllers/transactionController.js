@@ -27,7 +27,9 @@ exports.getTransactions = async (req, res, next) => {
 // @route POST /api/v1/transactions
 // @access Public
 exports.addTransaction = async (req, res, next) => {
-  res.send("POST transactions");
+  const { text, amount } = req.body;
+
+  const treansaction = await Transaction.create(req.body);
 };
 
 // @desc Delete transactions
